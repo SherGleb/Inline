@@ -1,0 +1,20 @@
+CREATE DATABASE inline;
+
+USE inline;
+CREATE TABLE posts 
+(
+    id INT PRIMARY KEY, 
+    userId INT, 
+    title VARCHAR(100), 
+    body VARCHAR(1000) 
+);
+
+CREATE TABLE comments 
+(
+    id INT PRIMARY KEY, 
+    postId INT,
+    name VARCHAR(100), 
+    email VARCHAR(100),
+    body VARCHAR(1000),
+    FOREIGN KEY (postId) REFERENCES posts(id)
+);
